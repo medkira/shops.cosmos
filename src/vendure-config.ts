@@ -55,7 +55,7 @@ export const config: VendureConfig = {
     type: "postgres",
     // See the README.md "Migrations" section for an explanation of
     // the `synchronize` and `migrations` options.
-    synchronize: false,
+    synchronize: true,
     migrations: [path.join(__dirname, "./migrations/*.+(js|ts)")],
     logging: false,
     database: process.env.DB_NAME,
@@ -76,7 +76,7 @@ export const config: VendureConfig = {
       // Important: This must match the base path from vite.config.mts (without slashes)
       route: "dashboard",
       // Path to the Vite build output directory
-      appDir: path.join(__dirname, "./dist"),
+      appDir: path.join(__dirname, "../dist/dashboard"),
     }),
     GraphiqlPlugin.init(),
     AssetServerPlugin.init({
@@ -108,14 +108,14 @@ export const config: VendureConfig = {
           "http://localhost:8080/verify-email-address-change",
       },
     }),
-    AdminUiPlugin.init({
-      route: "admin",
-      //   hostname: "0.0.0.0",
-      port: serverPort + 2,
-      adminUiConfig: {
-        apiHost: "https://shops.cosmostn.com",
-        // apiPort: serverPort,
-      },
-    }),
+    // AdminUiPlugin.init({
+    //   route: "admin",
+    //   //   hostname: "0.0.0.0",
+    //   port: serverPort + 2,
+    //   adminUiConfig: {
+    //     apiHost: "https://shops.cosmostn.com",
+    //     // apiPort: serverPort,
+    //   },
+    // }),
   ],
 };
