@@ -21,6 +21,7 @@ const serverPort = +process.env.PORT || 3000;
 
 export const config: VendureConfig = {
   apiOptions: {
+    hostname: "0.0.0.0",
     port: serverPort,
     adminApiPath: "admin-api",
     shopApiPath: "shop-api",
@@ -34,6 +35,10 @@ export const config: VendureConfig = {
           shopApiDebug: true,
         }
       : {}),
+    cors: {
+      origin: ["https://shops.cosmostn.com"],
+      credentials: true,
+    },
   },
   authOptions: {
     tokenMethod: ["bearer", "cookie"],
