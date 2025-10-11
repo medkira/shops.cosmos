@@ -21,7 +21,7 @@ const serverPort = +process.env.PORT || 3000;
 
 export const config: VendureConfig = {
   apiOptions: {
-    hostname: "0.0.0.0",
+    // hostname: "0.0.0.0",
     port: serverPort,
     adminApiPath: "admin-api",
     shopApiPath: "shop-api",
@@ -103,11 +103,11 @@ export const config: VendureConfig = {
     }),
     AdminUiPlugin.init({
       route: "admin",
-
+      //   hostname: "0.0.0.0",
       port: serverPort + 2,
       adminUiConfig: {
-        apiHost: "https://shops.cosmostn.com/",
-        apiPort: serverPort,
+        apiHost: "https://shops.cosmostn.com",
+        // apiPort: serverPort,
       },
     }),
   ],
