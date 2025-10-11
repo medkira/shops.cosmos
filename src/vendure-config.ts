@@ -15,6 +15,7 @@ import { AdminUiPlugin } from "@vendure/admin-ui-plugin";
 import { GraphiqlPlugin } from "@vendure/graphiql-plugin";
 import "dotenv/config";
 import path from "path";
+import { DashboardPlugin } from "@vendure/dashboard/plugin";
 
 const IS_DEV = process.env.APP_ENV === "dev";
 const serverPort = +process.env.PORT || 3000;
@@ -71,6 +72,12 @@ export const config: VendureConfig = {
   // need to be updated. See the "Migrations" section in README.md.
   customFields: {},
   plugins: [
+    DashboardPlugin.init({
+      // Important: This must match the base path from vite.config.mts (without slashes)
+      route: "dashboard",
+      // Path to the Vite build output directory
+      appDir: path.join(__dirname, "./dist"),
+    }),
     GraphiqlPlugin.init(),
     AssetServerPlugin.init({
       route: "assets",
