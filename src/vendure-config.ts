@@ -36,10 +36,21 @@ export const config: VendureConfig = {
           shopApiDebug: true,
         }
       : {}),
-    cors: {
-      origin: ["https://shops.cosmostn.com"],
-      credentials: true,
-    },
+    // cors: {
+    //   origin: ["https://shops.cosmostn.com"],
+    //   credentials: true,
+    // },
+    // cors: {
+    //   // When in development, allow requests from any origin
+    //   // The logic below checks if we are NOT in production
+    //   // origin: !IS_DEV
+    //   //   ? ["https://shops.cosmostn.com"] // Production URL
+    //   //   : ["*"], // Allow ALL origins (localhost:5173, etc.)
+
+    //   // origin: ["http://localhost, "http://localhost:5173"],
+
+    //   credentials: true,
+    // },
   },
   authOptions: {
     tokenMethod: ["bearer", "cookie"],
