@@ -16,6 +16,8 @@ import { GraphiqlPlugin } from "@vendure/graphiql-plugin";
 import "dotenv/config";
 import path from "path";
 import { DashboardPlugin } from "@vendure/dashboard/plugin";
+import { ChannelMetadata } from "./plugins/channel-metadata/entities/channel-metadata.entity";
+import { ChannelMetadataPlugin } from "./plugins/channel-metadata/channel-metadata.plugin";
 
 const IS_DEV = process.env.APP_ENV === "dev";
 const serverPort = +process.env.PORT || 3000;
@@ -128,5 +130,6 @@ export const config: VendureConfig = {
     //     // apiPort: serverPort,
     //   },
     // }),
+    ChannelMetadataPlugin,
   ],
 };
