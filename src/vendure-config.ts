@@ -18,6 +18,7 @@ import path from "path";
 import { DashboardPlugin } from "@vendure/dashboard/plugin";
 import { ChannelMetadata } from "./plugins/channel-metadata/entities/channel-metadata.entity";
 import { ChannelMetadataPlugin } from "./plugins/channel-metadata/channel-metadata.plugin";
+import { HardenPlugin } from "@vendure/harden-plugin";
 
 const IS_DEV = process.env.APP_ENV === "dev";
 const serverPort = +process.env.PORT || 3000;
@@ -68,7 +69,7 @@ export const config: VendureConfig = {
     type: "postgres",
     // See the README.md "Migrations" section for an explanation of
     // the `synchronize` and `migrations` options.
-    synchronize: true,
+    synchronize: process.env.DB_SYNCHRONIZE === "true",
     migrations: [path.join(__dirname, "./migrations/*.+(js|ts)")],
     logging: false,
     database: process.env.DB_NAME,
@@ -131,5 +132,9 @@ export const config: VendureConfig = {
     //   },
     // }),
     ChannelMetadataPlugin,
+    HardenPlugin.init({
+      maxQueryComplexity: 500,
+      apiMode: IS_DEV ? "dev" : "prod",
+    }),
   ],
 };
