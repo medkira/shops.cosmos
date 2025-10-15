@@ -30,6 +30,8 @@ export const config: VendureConfig = {
     adminApiPath: "admin-api",
     shopApiPath: "shop-api",
     trustProxy: IS_DEV ? false : 1,
+    introspection: IS_DEV ? true : false,
+
     // The following options are useful in development mode,
     // but are best turned off for production for security
     // reasons.
