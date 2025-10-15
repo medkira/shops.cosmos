@@ -14,7 +14,7 @@ import { AssetServerPlugin } from "@vendure/asset-server-plugin";
 import { AdminUiPlugin } from "@vendure/admin-ui-plugin";
 import { GraphiqlPlugin } from "@vendure/graphiql-plugin";
 import "dotenv/config";
-import path from "path";
+import path, { join } from "path";
 import { DashboardPlugin } from "@vendure/dashboard/plugin";
 import { ChannelMetadata } from "./plugins/channel-metadata/entities/channel-metadata.entity";
 import { ChannelMetadataPlugin } from "./plugins/channel-metadata/channel-metadata.plugin";
@@ -82,6 +82,7 @@ export const config: VendureConfig = {
   paymentOptions: {
     paymentMethodHandlers: [dummyPaymentHandler],
   },
+
   // When adding or altering custom field definitions, the database will
   // need to be updated. See the "Migrations" section in README.md.
   customFields: {},
@@ -99,7 +100,7 @@ export const config: VendureConfig = {
       // For local dev, the correct value for assetUrlPrefix should
       // be guessed correctly, but for production it will usually need
       // to be set manually to match your production url.
-      assetUrlPrefix: IS_DEV ? undefined : "https://www.my-shop.com/assets/",
+      assetUrlPrefix: IS_DEV ? undefined : "https://shops.cosmostn.com/assets/",
     }),
     DefaultSchedulerPlugin.init(),
     DefaultJobQueuePlugin.init({ useDatabaseForBuffer: true }),
