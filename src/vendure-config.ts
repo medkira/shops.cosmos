@@ -134,7 +134,7 @@ export const config: VendureConfig = {
     // }),
     ChannelMetadataPlugin,
     HardenPlugin.init({
-      maxQueryComplexity: 500,
+      maxQueryComplexity: 5000,
       apiMode: IS_DEV ? "dev" : "prod",
     }),
   ],
