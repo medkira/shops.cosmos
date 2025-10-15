@@ -89,7 +89,7 @@ export const config: VendureConfig = {
   // need to be updated. See the "Migrations" section in README.md.
   customFields: {},
   plugins: [
-    // GraphiqlPlugin.init(),
+    GraphiqlPlugin.init(),
     DashboardPlugin.init({
       // Important: This must match the base path from vite.config.mts (without slashes)
       route: "dashboard",
