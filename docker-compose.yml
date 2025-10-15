@@ -14,7 +14,7 @@ services:
         environment:
             POSTGRES_DB: vendure
             POSTGRES_USER: vendure
-            POSTGRES_PASSWORD: evCKctWbOllPu6RksZHVXg
+            POSTGRES_PASSWORD: gXraQ6iEdTwjb9cx4yEOBA
         labels:
             - "io.vendure.create.name=my-shop"
 
@@ -26,7 +26,7 @@ services:
             MYSQL_ROOT_PASSWORD: 'ROOT'
             MYSQL_DATABASE: vendure
             MYSQL_USER: vendure
-            MYSQL_PASSWORD: evCKctWbOllPu6RksZHVXg
+            MYSQL_PASSWORD: gXraQ6iEdTwjb9cx4yEOBA
         ports:
             - "4306:3306"
         labels:
@@ -40,7 +40,7 @@ services:
             MARIADB_ROOT_PASSWORD: 'ROOT'
             MARIADB_DATABASE: vendure
             MARIADB_USER: vendure
-            MARIADB_PASSWORD: evCKctWbOllPu6RksZHVXg
+            MARIADB_PASSWORD: gXraQ6iEdTwjb9cx4yEOBA
         ports:
             - "3306:3306"
         labels:

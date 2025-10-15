@@ -20,7 +20,7 @@
     "src/plugins/**/ui/*",
     "src/plugins/**/dashboard/*",
     "admin-ui",
-    "vite.*.*ts",
+    "vite.*.*ts"
   ],
   "ts-node": {
     "files": true
