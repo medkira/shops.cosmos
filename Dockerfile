@@ -6,6 +6,7 @@ COPY package.json package-lock.json ./
 RUN npm install --production
 
 COPY . .
+RUN npx vite build
 RUN npm run build
 
-CMD ["npm", "run", "start:server"]
+CMD ["npm", "run", "start"]

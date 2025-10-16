@@ -7,7 +7,7 @@ export default defineConfig(({ mode }) => {
   const IS_DEV = env.APP_ENV === "dev";
 
   return {
-    base: "/dashboard/",
+    base: "/dashboard",
     build: {
       outDir: join(__dirname, "dist/dashboard"),
     },
