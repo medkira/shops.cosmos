@@ -4,6 +4,7 @@ import {
   DefaultSchedulerPlugin,
   DefaultSearchPlugin,
   VendureConfig,
+  MultiChannelStockLocationStrategy,
 } from "@vendure/core";
 import {
   defaultEmailHandlers,
@@ -24,6 +25,9 @@ const IS_DEV = process.env.APP_ENV === "dev";
 const serverPort = +process.env.PORT || 3000;
 
 export const config: VendureConfig = {
+  catalogOptions: {
+    stockLocationStrategy: new MultiChannelStockLocationStrategy(),
+  },
   apiOptions: {
     // hostname: "0.0.0.0",
     port: serverPort,
@@ -125,6 +129,7 @@ export const config: VendureConfig = {
           "http://localhost:8080/verify-email-address-change",
       },
     }),
+
     // AdminUiPlugin.init({
     //   route: "admin",
     //   //   hostname: "0.0.0.0",
